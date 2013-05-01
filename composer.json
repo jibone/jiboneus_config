@@ -4,6 +4,7 @@
   "homepage": "",
   "version": "0.1.0",
   "type": "library",
+  "hompage": "https://github.com/jiboneus/jiboneus_config",
   "keywords": ["config"],
   "license": "MIT",
   "authors": [
