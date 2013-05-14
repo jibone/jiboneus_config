@@ -73,6 +73,7 @@ class Config {
       require $this->_config_path;
       $this->_config = $conf;
     }
+    return $this;
   }
 
   /**

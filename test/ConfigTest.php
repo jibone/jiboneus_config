@@ -80,6 +80,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
     unset($c);
   }
 
+  // -- test getting data
   public function testConfigGetData() {
     $path = "settings.php";
     $c = new \Jiboneus\Config\Config($path);
@@ -103,6 +104,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
     unset($c);
   }
 
+  // -- test setting data
   public function testConfigSetData() {
     $path = "settings.php";
     $c = new \Jiboneus\Config\Config();
@@ -130,6 +132,28 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
     $expected = "website description";
     $actual = $c->get("description");
     $this->assertEquals($expected, $actual);
+
+    unset($c);
+  }
+
+  // -- test loading configuration for different enviroment
+  public function testConfigEnviroment() {
+    $path = "settings.php";
+    $c = new \Jiboneus\Config\Config($path);
+
+    $expected = "test.dev";
+    $config = $c->get($c->get("enviroment"));
+    $this->assertEquals($expected, $config["base_url"]);
+    
+    $expected = "localhost";
+    $c->set("enviroment", "development");
+    $config = $c->get($c->get("enviroment"));
+    $this->assertEquals($expected, $config["base_url"]);
+    
+    $expected = "website.com";
+    $c->set("enviroment", "production");
+    $config = $c->get($c->get("enviroment"));
+    $this->assertEquals($expected, $config["base_url"]);
 
     unset($c);
   }
