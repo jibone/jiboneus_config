@@ -2,7 +2,7 @@
   "name": "jiboneus/config",
   "description": "App config reader.",
   "homepage": "",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "library",
   "hompage": "https://github.com/jiboneus/jiboneus_config",
   "keywords": ["config"],
